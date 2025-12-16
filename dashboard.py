@@ -10,13 +10,20 @@ from datetime import datetime, timedelta
 import os
 from prophet import Prophet
 from prophet.plot import plot_plotly
+import platform
 
 # --- 1. 基础配置 ---
 st.set_page_config(page_title="金融指挥中心 Pro", layout="wide", page_icon="🏦")
 
-# 代理配置 (南京信息工程大学 - 本地环境)
-#os.environ["http_proxy"] = "http://127.0.0.1:7890"
-#os.environ["https_proxy"] = "http://127.0.0.1:7890"
+# 智能代理配置
+# 只有检测到是 macOS 系统 (你的电脑) 时才开启代理
+# 云端通常是 Linux 系统，这行代码会自动跳过，不会报错
+if platform.system() == "Darwin":
+    os.environ["http_proxy"] = "http://127.0.0.1:7890"
+    os.environ["https_proxy"] = "http://127.0.0.1:7890"
+    print("🍎 检测到 macOS，已开启本地代理")
+else:
+    print("☁️ 检测到云端环境，直连模式")
 
 
 # --- 2. 核心函数: 计算技术指标 ---
