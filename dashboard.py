@@ -15,8 +15,8 @@ from prophet.plot import plot_plotly
 st.set_page_config(page_title="金融指挥中心 Pro", layout="wide", page_icon="🏦")
 
 # 代理配置 (南京信息工程大学 - 本地环境)
-os.environ["http_proxy"] = "http://127.0.0.1:7890"
-os.environ["https_proxy"] = "http://127.0.0.1:7890"
+#os.environ["http_proxy"] = "http://127.0.0.1:7890"
+#os.environ["https_proxy"] = "http://127.0.0.1:7890"
 
 
 # --- 2. 核心函数: 计算技术指标 ---
